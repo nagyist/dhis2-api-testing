@@ -1,0 +1,9 @@
+#Simple test file that simply does a GET on the base URL
+---
+- config: 
+    - testset: "ME API" #Name test sets
+- test: 
+    - url: "/api/me" #Basic test, just a simple GET
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
