@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from __future__ import print_function
-from subprocess import call
+from subprocess import check_call
 import os
 import glob
 
@@ -10,6 +10,6 @@ def getTestFiles():
     return glob.glob(current_path + '/*.yaml');    
 
 def runTestFile(file):
-    call(["resttest.py", "https://apps.dhis2.org/dev/", file])
+    check_call(["resttest.py", "https://apps.dhis2.org/dev/", file])
 
 map(lambda file: runTestFile(file), getTestFiles())
