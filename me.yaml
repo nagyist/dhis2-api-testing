@@ -4,7 +4,18 @@
     - testset: "ME API" #Name test sets
 - test: 
     - group: "api/me"
-    - url: "/api/me" #Basic test, just a simple GET
+    - url: "/api/me" #Basic test to see if it is alive
     - auth_username: "admin"
     - auth_password: "district"
+    - name: "End points exists"
     - expected_status: [200]
+- test: 
+    - group: "api/me"
+    - url: "/api/me.json" #Basic validation test
+    - auth_username: "admin"
+    - auth_password: "district"
+    - name: "Field validation should pass"
+    - validators:
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: 'John Traore'}
+        - compare: {jsonpath_mini: "organisationUnits.0.name",  comparator: "eq",  expected: 'Sierra Leone'}
+        - extract_test: {jsonpath_mini: "key_should_not_exist",  test: "not_exists"}
