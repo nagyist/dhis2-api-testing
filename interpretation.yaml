@@ -1,0 +1,42 @@
+# Schema tests for Interpretation
+---
+- config:
+    - testset: "Schemas API Interpretation test sets"
+- test:
+    - group: "/api/schemas/interpretation"
+    - url: "/api/schemas/interpretation.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.interpretation.Interpretation"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/interpretations"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "interpretations"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Interpretation"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "interpretations"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "interpretation"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "interpretation"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 0}
+        - compare: {jsonpath_mini: "properties",  comparator: "count_eq",  expected: 21}
+        - compare: {jsonpath_mini: "properties.0.name",  comparator: "eq",  expected: "period"}
+        - compare: {jsonpath_mini: "properties.1.name",  comparator: "eq",  expected: "comment"}
+        - compare: {jsonpath_mini: "properties.2.name",  comparator: "eq",  expected: "code"}
+        - compare: {jsonpath_mini: "properties.3.name",  comparator: "eq",  expected: "userGroupAccess"}
+        - compare: {jsonpath_mini: "properties.4.name",  comparator: "eq",  expected: "access"}
+        - compare: {jsonpath_mini: "properties.5.name",  comparator: "eq",  expected: "organisationUnit"}
+        - compare: {jsonpath_mini: "properties.6.name",  comparator: "eq",  expected: "created"}
+        - compare: {jsonpath_mini: "properties.7.name",  comparator: "eq",  expected: "displayName"}
+        - compare: {jsonpath_mini: "properties.8.name",  comparator: "eq",  expected: "publicAccess"}
+        - compare: {jsonpath_mini: "properties.9.name",  comparator: "eq",  expected: "type"}
+        - compare: {jsonpath_mini: "properties.10.name",  comparator: "eq",  expected: "externalAccess"}
+        - compare: {jsonpath_mini: "properties.11.name",  comparator: "eq",  expected: "reportTable"}
+        - compare: {jsonpath_mini: "properties.12.name",  comparator: "eq",  expected: "lastUpdated"}
+        - compare: {jsonpath_mini: "properties.13.name",  comparator: "eq",  expected: "name"}
+        - compare: {jsonpath_mini: "properties.14.name",  comparator: "eq",  expected: "id"}
+        - compare: {jsonpath_mini: "properties.15.name",  comparator: "eq",  expected: "href"}
+        - compare: {jsonpath_mini: "properties.16.name",  comparator: "eq",  expected: "text"}
+        - compare: {jsonpath_mini: "properties.17.name",  comparator: "eq",  expected: "map"}
+        - compare: {jsonpath_mini: "properties.18.name",  comparator: "eq",  expected: "user"}
+        - compare: {jsonpath_mini: "properties.19.name",  comparator: "eq",  expected: "chart"}
+        - compare: {jsonpath_mini: "properties.20.name",  comparator: "eq",  expected: "dataSet"}

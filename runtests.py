@@ -7,9 +7,9 @@ import glob
 
 def getTestFiles():
     current_path = os.path.dirname(os.path.realpath(__file__));
-    return glob.glob(current_path + '/*.yaml');    
+    return glob.glob(current_path + '/*.yaml');
 
 def runTestFile(file):
-    check_call(["resttest.py", "https://apps.dhis2.org/dev/", file])
+    check_call(["resttest.py", "https://apps.dhis2.org/dev", file])
 
 map(lambda file: runTestFile(file), getTestFiles())

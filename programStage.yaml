@@ -1,0 +1,59 @@
+# Schema tests for Program Stage
+---
+- config:
+    - testset: "Schemas API Program Stage test sets"
+- test:
+    - group: "/api/schemas/programStage"
+    - url: "/api/schemas/programStage.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.program.ProgramStage"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/programStages"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "programStages"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Program Stage"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "programStages"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "programStage"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "programStage"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 2}
+        - compare: {jsonpath_mini: "properties",  comparator: "count_eq",  expected: 38}
+        - compare: {jsonpath_mini: "properties.0.name",  comparator: "eq",  expected: "dataEntryForm"}
+        - compare: {jsonpath_mini: "properties.1.name",  comparator: "eq",  expected: "validCompleteOnly"}
+        - compare: {jsonpath_mini: "properties.2.name",  comparator: "eq",  expected: "allowGenerateNextVisit"}
+        - compare: {jsonpath_mini: "properties.3.name",  comparator: "eq",  expected: "code"}
+        - compare: {jsonpath_mini: "properties.4.name",  comparator: "eq",  expected: "access"}
+        - compare: {jsonpath_mini: "properties.5.name",  comparator: "eq",  expected: "preGenerateUID"}
+        - compare: {jsonpath_mini: "properties.6.name",  comparator: "eq",  expected: "displayName"}
+        - compare: {jsonpath_mini: "properties.7.name",  comparator: "eq",  expected: "publicAccess"}
+        - compare: {jsonpath_mini: "properties.8.name",  comparator: "eq",  expected: "reportDateToUse"}
+        - compare: {jsonpath_mini: "properties.9.name",  comparator: "eq",  expected: "description"}
+        - compare: {jsonpath_mini: "properties.10.name",  comparator: "eq",  expected: "program"}
+        - compare: {jsonpath_mini: "properties.11.name",  comparator: "eq",  expected: "externalAccess"}
+        - compare: {jsonpath_mini: "properties.12.name",  comparator: "eq",  expected: "dataEntryType"}
+        - compare: {jsonpath_mini: "properties.13.name",  comparator: "eq",  expected: "lastUpdated"}
+        - compare: {jsonpath_mini: "properties.14.name",  comparator: "eq",  expected: "openAfterEnrollment"}
+        - compare: {jsonpath_mini: "properties.15.name",  comparator: "eq",  expected: "repeatable"}
+        - compare: {jsonpath_mini: "properties.16.name",  comparator: "eq",  expected: "programStageDataElement"}
+        - compare: {jsonpath_mini: "properties.17.name",  comparator: "eq",  expected: "captureCoordinates"}
+        - compare: {jsonpath_mini: "properties.18.name",  comparator: "eq",  expected: "href"}
+        - compare: {jsonpath_mini: "properties.19.name",  comparator: "eq",  expected: "id"}
+        - compare: {jsonpath_mini: "properties.20.name",  comparator: "eq",  expected: "remindCompleted"}
+        - compare: {jsonpath_mini: "properties.21.name",  comparator: "eq",  expected: "userGroupAccess"}
+        - compare: {jsonpath_mini: "properties.22.name",  comparator: "eq",  expected: "displayGenerateEventBox"}
+        - compare: {jsonpath_mini: "properties.23.name",  comparator: "eq",  expected: "generatedByEnrollmentDate"}
+        - compare: {jsonpath_mini: "properties.24.name",  comparator: "eq",  expected: "created"}
+        - compare: {jsonpath_mini: "properties.25.name",  comparator: "eq",  expected: "attributeValue"}
+        - compare: {jsonpath_mini: "properties.26.name",  comparator: "eq",  expected: "trackedEntityInstanceReminder"}
+        - compare: {jsonpath_mini: "properties.27.name",  comparator: "eq",  expected: "defaultTemplateMessage"}
+        - compare: {jsonpath_mini: "properties.28.name",  comparator: "eq",  expected: "autoGenerateEvent"}
+        - compare: {jsonpath_mini: "properties.29.name",  comparator: "eq",  expected: "periodType"}
+        - compare: {jsonpath_mini: "properties.30.name",  comparator: "eq",  expected: "sortOrder"}
+        - compare: {jsonpath_mini: "properties.31.name",  comparator: "eq",  expected: "name"}
+        - compare: {jsonpath_mini: "properties.32.name",  comparator: "eq",  expected: "blockEntryForm"}
+        - compare: {jsonpath_mini: "properties.33.name",  comparator: "eq",  expected: "reportDateDescription"}
+        - compare: {jsonpath_mini: "properties.34.name",  comparator: "eq",  expected: "standardInterval"}
+        - compare: {jsonpath_mini: "properties.35.name",  comparator: "eq",  expected: "minDaysFromStart"}
+        - compare: {jsonpath_mini: "properties.36.name",  comparator: "eq",  expected: "user"}
+        - compare: {jsonpath_mini: "properties.37.name",  comparator: "eq",  expected: "programStageSection"}
