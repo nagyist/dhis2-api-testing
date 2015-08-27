@@ -3,7 +3,16 @@
 - config: 
     - testset: "ME API" #Name test sets
 - test: 
-    - url: "/api/me" #Basic test, just a simple GET
+    - url: "/api/me" #Basic test to see if it is alive
     - auth_username: "admin"
     - auth_password: "district"
+    - group: "End points exists"
     - expected_status: [200]
+- test: 
+    - url: "/api/me.json" #Basic validation test
+    - auth_username: "admin"
+    - auth_password: "district"
+    - group: "Field validation"
+    - validators:
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: 'John Traore'}
+        - compare: {jsonpath_mini: "organisationUnits.0.name",  comparator: "eq",  expected: 'Sierra Leone'}
