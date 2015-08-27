@@ -12,14 +12,8 @@
     - url: "/api/me.json" #Basic validation test
     - auth_username: "admin"
     - auth_password: "district"
-    - group: "Field validation which succeeeds"
+    - group: "Field validation should pass"
     - validators:
         - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: 'John Traore'}
         - compare: {jsonpath_mini: "organisationUnits.0.name",  comparator: "eq",  expected: 'Sierra Leone'}
-- test:
-    - url: "/api/me.json"
-    - auth_username: "admin"
-    - auth_password: "district"
-    - group: "Field validations which should fail"
-    - validators:
-     - compare: {jsonpath_mini: "job", comparator: "eq", expected: 0}
+        - extract_test: {jsonpath_mini: "key_should_not_exist",  test: "not_exists"}
