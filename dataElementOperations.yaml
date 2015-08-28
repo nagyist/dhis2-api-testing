@@ -1,4 +1,4 @@
-# Schema tests for Attribute
+# Schema tests for Data element CRUD operations
 ---
 - config:
     - testset: "Data element CRUD operations"
@@ -39,3 +39,11 @@
     - method: "DELETE"
     - headers: {Content-Type: application/json}
     - expected_status: [204]
+- test:
+    - group: "Data element delete check"
+    - url: "api/dataElements/abcd1234567/"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - method: "GET"
+    - headers: {Content-Type: application/json}
+    - expected_status: [404]
