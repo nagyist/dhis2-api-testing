@@ -18,18 +18,4 @@
         - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
         - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "relationshipType"}
         - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 2}
-        - compare: {jsonpath_mini: "properties",  comparator: "count_eq",  expected: 14}
-        - compare: {names: "properties",  comparator: "contains",  expected: "code"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "userGroupAccess"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "access"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "created"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "displayName"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "publicAccess"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "bIsToA"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "externalAccess"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "lastUpdated"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "name"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "id"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "href"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "aIsToB"}
-        - compare: {names: "properties",  comparator: "contains",  expected: "user"}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['code','userGroupAccess','access','created','displayName','publicAccess','bIsToA','externalAccess','lastUpdated','name','id','href','aIsToB','user']"}

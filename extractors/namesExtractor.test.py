@@ -1,3 +1,5 @@
+__author__ = 'Mark Polak'
+
 import unittest
 from namesExtractor import NamesExtractor
 from pyresttest import validators

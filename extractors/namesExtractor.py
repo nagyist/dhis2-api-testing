@@ -1,3 +1,5 @@
+__author__ = 'Mark Polak'
+
 from pyresttest.validators import AbstractExtractor
 import json
 
