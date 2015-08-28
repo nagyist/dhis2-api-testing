@@ -1,0 +1,33 @@
+# Schema tests for Option
+---
+- config:
+    - testset: "Schemas API Option test sets"
+- test:
+    - group: "/api/schemas/option"
+    - url: "/api/schemas/option.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.option.Option"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/options"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "options"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Option"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "options"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "option"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "option"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 3}
+        - compare: {jsonpath_mini: "properties",  comparator: "count_eq",  expected: 12}
+        - compare: {names: "properties",  comparator: "contains",  expected: "userGroupAccess"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "code"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "access"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "created"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "displayName"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "publicAccess"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "externalAccess"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "lastUpdated"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "name"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "id"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "href"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "user"}

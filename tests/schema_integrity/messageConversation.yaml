@@ -1,0 +1,45 @@
+# Schema tests for Message Conversation
+---
+- config:
+    - testset: "Schemas API Message Conversation test sets"
+- test:
+    - group: "/api/schemas/messageConversation"
+    - url: "/api/schemas/messageConversation.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.message.MessageConversation"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/messageConversations"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "messageConversations"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Message Conversation"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "messageConversations"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "messageConversation"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "messageConversation"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 0}
+        - compare: {jsonpath_mini: "properties",  comparator: "count_eq",  expected: 24}
+        - compare: {names: "properties",  comparator: "contains",  expected: "messageCount"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "code"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "access"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "subject"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "displayName"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "publicAccess"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "externalAccess"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "lastUpdated"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "followUp"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "userMessage"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "id"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "href"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "userSurname"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "lastSenderSurname"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "read"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "userGroupAccess"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "lastSender"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "created"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "lastMessage"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "lastSenderFirstname"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "name"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "message"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "userFirstname"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "user"}

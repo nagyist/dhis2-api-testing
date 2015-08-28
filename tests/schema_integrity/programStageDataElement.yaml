@@ -1,0 +1,40 @@
+# Schema tests for Program Stage Data Element
+---
+- config:
+    - testset: "Schemas API Program Stage Data Element test sets"
+- test:
+    - group: "/api/schemas/programStageDataElement"
+    - url: "/api/schemas/programStageDataElement.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.program.ProgramStageDataElement"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/programStageDataElements"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "programStageDataElements"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Program Stage Data Element"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "programStageDataElements"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "programStageDataElement"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "programStageDataElement"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 2}
+        - compare: {jsonpath_mini: "properties",  comparator: "count_eq",  expected: 19}
+        - compare: {names: "properties",  comparator: "contains",  expected: "programStage"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "displayInReports"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "code"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "userGroupAccess"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "access"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "created"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "displayName"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "publicAccess"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "dataElement"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "externalAccess"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "lastUpdated"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "compulsory"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "allowProvidedElsewhere"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "sortOrder"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "name"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "id"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "href"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "allowFutureDate"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "user"}

@@ -1,0 +1,64 @@
+# Schema tests for Data Set
+---
+- config:
+    - testset: "Schemas API Data Set test sets"
+- test:
+    - group: "/api/schemas/dataSet"
+    - url: "/api/schemas/dataSet.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.dataset.DataSet"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/dataSets"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "dataSets"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Data Set"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "dataSets"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "dataSet"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "dataSet"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 3}
+        - compare: {jsonpath_mini: "properties",  comparator: "count_eq",  expected: 43}
+        - compare: {names: "properties",  comparator: "contains",  expected: "dataEntryForm"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "validCompleteOnly"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "code"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "access"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "dataElementDecoration"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "displayName"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "notifyCompletingUser"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "publicAccess"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "noValueRequiresComment"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "compulsoryDataElementOperand"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "description"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "approveData"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "skipOffline"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "displayShortName"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "externalAccess"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "fieldCombinationRequired"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "lastUpdated"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "categoryCombo"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "href"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "id"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "organisationUnit"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "dataElement"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "displayDescription"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "renderHorizontally"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "renderAsTabs"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "userGroupAccess"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "created"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "mobile"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "attributeValue"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "indicator"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "version"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "section"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "skipAggregation"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "timelyDays"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "periodType"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "dataSetType"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "legendSet"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "name"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "notificationRecipients"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "openFuturePeriods"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "expiryDays"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "shortName"}
+        - compare: {names: "properties",  comparator: "contains",  expected: "user"}
