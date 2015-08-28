@@ -8,6 +8,9 @@ class EqualItemsComparator(TestCase):
     def test_runs_the_function(self):
         equal_items([], [])
 
+    def test_should_return_true_if_both_lists_are_None(self):
+        self.assertTrue(equal_items(None, None))
+
     def test_should_return_True_for_two_empty_lists(self):
         self.assertTrue(equal_items([], []))
 
