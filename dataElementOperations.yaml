@@ -12,17 +12,6 @@
     - expected_status: [200]
     - body: {file: sampleDataElement.json}
 - test:
-    - group: "Data element search"
-    - url: "/api/dataElements.json?filter=name:eq:TestDataElement"
-    - auth_username: "admin"
-    - auth_password: "district"
-    - method: "GET"
-    - headers: {Content-Type: application/json, Accept: application/json}
-    - expected_status: [200]
-    - validators:
-        - compare: {jsonpath_mini: "dataElements.0.name",  comparator: "eq",  expected: "TestDataElement"}
-        - compare: {jsonpath_mini: "dataElements.0.id",  comparator: "eq",  expected: "abcd1234567"}
-- test:
     - group: "Data element update"
     - url: "/api/dataElements/abcd1234567/name/"
     - auth_username: "admin"
@@ -38,7 +27,7 @@
     - auth_password: "district"
     - method: "GET"
     - expected_status: [200]
-    - headers: {Content-Type: application/json, Accept: application/json}
+    #- headers: {Content-Type: application/json, Accept: application/json}
     - validators:
         - compare: {jsonpath_mini: "meta.allowPublicAccess",  comparator: "eq",  expected: true}
         - compare: {jsonpath_mini: "meta.allowExternalAccess",  comparator: "eq",  expected: false}
