@@ -32,6 +32,17 @@
     - expected_status: [200]
     - body: '{"name": "Test Data Element"}'
 - test:
+    - group: "Data element sharing"
+    - url: "/api/sharing?type=dataElement&id=abcd1234567"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - method: "GET"
+    - expected_status: [200]
+    - headers: {Accept: application/json}
+    - validators:
+        - compare: {jsonpath_mini: "meta.allowPublicAccess",  comparator: "eq",  expected: true}
+        - compare: {jsonpath_mini: "meta.allowExternalAccess",  comparator: "eq",  expected: false}
+- test:
     - group: "Data element delete"
     - url: "/api/dataElements/abcd1234567/"
     - auth_username: "admin"
