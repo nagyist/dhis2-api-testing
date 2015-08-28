@@ -8,8 +8,7 @@
     - auth_username: "admin"
     - auth_password: "district"
     - method: "POST"
-    - headers: {Content-Type: application/json}
-    - headers: {Accept: application/json}
+    - headers: {Content-Type: application/json, Accept: application/json}
     - expected_status: [200]
     - body: {file: sampleDataElement.json}
 - test:
@@ -29,8 +28,7 @@
     - auth_username: "admin"
     - auth_password: "district"
     - method: "PUT"
-    - headers: {Content-Type: application/json}
-    - headers: {Accept: application/json}
+    - headers: {Content-Type: application/json, Accept: application/json}
     - expected_status: [200]
     - body: '{"name": "Test Data Element"}'
 - test:
@@ -40,7 +38,7 @@
     - auth_password: "district"
     - method: "GET"
     - expected_status: [200]
-    - headers: {Accept: application/json}
+    - headers: {Content-Type: application/json, Accept: application/json}
     - validators:
         - compare: {jsonpath_mini: "meta.allowPublicAccess",  comparator: "eq",  expected: true}
         - compare: {jsonpath_mini: "meta.allowExternalAccess",  comparator: "eq",  expected: false}
@@ -50,7 +48,7 @@
     - auth_username: "admin"
     - auth_password: "district"
     - method: "DELETE"
-    - headers: {Accept: application/json}
+    - headers: {Content-Type: application/json, Accept: application/json}
     - expected_status: [204]
 - test:
     - group: "Data element delete check"
@@ -58,5 +56,5 @@
     - auth_username: "admin"
     - auth_password: "district"
     - method: "GET"
-    - headers: {Accept: application/json}
+    - headers: {Content-Type: application/json, Accept: application/json}
     - expected_status: [404]
