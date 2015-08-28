@@ -1,4 +1,4 @@
-# Schema tests for Data element CRUD operations
+# Test for Data element CRUD operations
 ---
 - config:
     - testset: "Data element CRUD operations"
