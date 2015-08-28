@@ -9,6 +9,7 @@
     - auth_password: "district"
     - method: "POST"
     - headers: {Content-Type: application/json}
+    - headers: {Accept: application/json}
     - expected_status: [200]
     - body: {file: sampleDataElement.json}
 - test:
@@ -29,6 +30,7 @@
     - auth_password: "district"
     - method: "PUT"
     - headers: {Content-Type: application/json}
+    - headers: {Accept: application/json}
     - expected_status: [200]
     - body: '{"name": "Test Data Element"}'
 - test:
