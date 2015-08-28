@@ -9,7 +9,9 @@ def getTestFiles():
     current_path = os.path.dirname(os.path.realpath(__file__));
     return glob.glob(current_path + '/*.yaml');
 
+
 def runTestFile(file):
+
     try:
         output = check_call(["resttest.py", "https://apps.dhis2.org/dev", file])
     except CalledProcessError as e:
