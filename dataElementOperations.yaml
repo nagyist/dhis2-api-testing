@@ -17,7 +17,7 @@
     - auth_username: "admin"
     - auth_password: "district"
     - method: "GET"
-    - headers: {Accept: application/json}
+    - headers: {Content-Type: application/json, Accept: application/json}
     - expected_status: [200]
     - validators:
         - compare: {jsonpath_mini: "dataElements.0.name",  comparator: "eq",  expected: "TestDataElement"}
