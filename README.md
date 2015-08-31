@@ -9,7 +9,8 @@ pip install -r requirements.txt
 
 ### Run the tests
 ```sh
-python runtests.py
+python runtests.py config.file
 #or
-./runtests.py
+./runtests.py config.file
 ```
+config.file will default to apitests.default. Otherwise, it should be configured to point to the server of your choice with the proper details.
