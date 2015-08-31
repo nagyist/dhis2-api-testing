@@ -1,0 +1,21 @@
+# Schema tests for Program Rule Variable
+---
+- config:
+    - testset: "Schemas API Program Rule Variable test sets"
+- test:
+    - group: "/api/schemas/programRuleVariable"
+    - url: "/api/schemas/programRuleVariable.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.programrule.ProgramRuleVariable"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/programRuleVariables"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "programRuleVariables"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Program Rule Variable"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "programRuleVariables"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "programRuleVariable"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "programRuleVariable"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 2}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['programStage','code','userGroupAccess','access','created','displayName','publicAccess','programRuleVariableSourceType','program','dataElement','trackedEntityAttribute','externalAccess','lastUpdated','name','id','href','user']"}

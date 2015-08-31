@@ -1,0 +1,21 @@
+# Schema tests for Data Element Group
+---
+- config:
+    - testset: "Schemas API Data Element Group test sets"
+- test:
+    - group: "/api/schemas/dataElementGroup"
+    - url: "/api/schemas/dataElementGroup.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.dataelement.DataElementGroup"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/dataElementGroups"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "dataElementGroups"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Data Element Group"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "dataElementGroups"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "dataElementGroup"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "dataElementGroup"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 3}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['displayDescription','code','userGroupAccess','access','dataElementGroupSet','created','displayName','publicAccess','attributeValue','description','displayShortName','externalAccess','lastUpdated','name','id','href','shortName','dataElement','user']"}

@@ -1,0 +1,21 @@
+# Schema tests for Legend Set
+---
+- config:
+    - testset: "Schemas API Legend Set test sets"
+- test:
+    - group: "/api/schemas/legendSet"
+    - url: "/api/schemas/legendSet.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.legend.LegendSet"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/legendSets"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "legendSets"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Legend Set"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "legendSets"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "legendSet"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "legendSet"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 0}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['code','userGroupAccess','access','created','displayName','publicAccess','externalAccess','symbolizer','lastUpdated','legend','name','id','href','user']"}

@@ -1,0 +1,21 @@
+# Schema tests for Chart
+---
+- config:
+    - testset: "Schemas API Chart test sets"
+- test:
+    - group: "/api/schemas/chart"
+    - url: "/api/schemas/chart.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.chart.Chart"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/charts"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "charts"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Chart"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "charts"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "chart"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "chart"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 2}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['showData','baseLineValue','publicAccess','userOrganisationUnitChildren','program','type','lastUpdated','hideEmptyRows','attributeDimension','parentGraphMap','userOrganisationUnit','href','filterDimension','id','organisationUnitGroup','itemOrganisationUnitGroup','userGroupAccess','domainAxisLabel','created','rangeAxisLabel','sortOrder','name','rangeAxisDecimals','topLimit','aggregationType','dataDimensionItem','code','access','userOrganisationUnitGrandChildren','displayName','column','hideSubtitle','title','hideLegend','externalAccess','rangeAxisMinValue','organisationUnitLevel','dataElementDimension','relativePeriods','rangeAxisSteps','targetLineLabel','period','organisationUnit','categoryDimension','dataElementGroup','targetLineValue','filter','row','baseLineLabel','digitGroupSeparator','categoryOptionGroup','hideTitle','regression','series','rangeAxisMaxValue','category','user']"}

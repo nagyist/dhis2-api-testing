@@ -1,0 +1,21 @@
+# Schema tests for Event Chart
+---
+- config:
+    - testset: "Schemas API Event Chart test sets"
+- test:
+    - group: "/api/schemas/eventChart"
+    - url: "/api/schemas/eventChart.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.eventchart.EventChart"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/eventCharts"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "eventCharts"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Event Chart"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "eventCharts"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "eventChart"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "eventChart"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 2}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['showData','endDate','publicAccess','userOrganisationUnitChildren','baseLineValue','program','type','lastUpdated','hideEmptyRows','attributeDimension','parentGraphMap','userOrganisationUnit','href','filterDimension','id','hideNaData','organisationUnitGroup','itemOrganisationUnitGroup','attributeValueDimension','userGroupAccess','domainAxisLabel','created','rangeAxisLabel','columnDimension','sortOrder','name','rangeAxisDecimals','topLimit','startDate','collapseDataDimensions','aggregationType','dataDimensionItem','access','code','userOrganisationUnitGrandChildren','displayName','column','hideSubtitle','outputType','title','hideLegend','externalAccess','rangeAxisMinValue','organisationUnitLevel','dataElementValueDimension','dataElementDimension','relativePeriods','rangeAxisSteps','targetLineLabel','period','organisationUnit','value','categoryDimension','programStage','dataElementGroup','targetLineValue','filter','row','baseLineLabel','digitGroupSeparator','categoryOptionGroup','hideTitle','rowDimension','regression','rangeAxisMaxValue','user']"}

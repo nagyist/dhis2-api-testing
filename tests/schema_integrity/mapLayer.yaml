@@ -1,0 +1,21 @@
+# Schema tests for Map Layer
+---
+- config:
+    - testset: "Schemas API Map Layer test sets"
+- test:
+    - group: "/api/schemas/mapLayer"
+    - url: "/api/schemas/mapLayer.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.mapping.MapLayer"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/mapLayers"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "mapLayers"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Map Layer"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "mapLayers"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "mapLayer"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "mapLayer"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 0}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['strokeWidth','code','userGroupAccess','access','fillOpacity','created','displayName','publicAccess','type','url','externalAccess','fillColor','lastUpdated','name','layers','id','href','time','strokeColor','user']"}

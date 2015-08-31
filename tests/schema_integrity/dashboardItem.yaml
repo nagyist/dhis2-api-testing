@@ -1,0 +1,21 @@
+# Schema tests for Dashboard Item
+---
+- config:
+    - testset: "Schemas API Dashboard Item test sets"
+- test:
+    - group: "/api/schemas/dashboardItem"
+    - url: "/api/schemas/dashboardItem.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.dashboard.DashboardItem"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/dashboardItems"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "dashboardItems"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Dashboard Item"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "dashboardItems"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "dashboardItem"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "dashboardItem"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 1}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['report','code','access','displayName','publicAccess','type','externalAccess','reportTable','lastUpdated','id','href','map','contentCount','userGroupAccess','shape','created','resource','user','eventReport','name','eventChart','messages','user','chart']"}

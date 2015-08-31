@@ -1,0 +1,21 @@
+# Schema tests for Category Option Group
+---
+- config:
+    - testset: "Schemas API Category Option Group test sets"
+- test:
+    - group: "/api/schemas/categoryOptionGroup"
+    - url: "/api/schemas/categoryOptionGroup.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.dataelement.CategoryOptionGroup"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/categoryOptionGroups"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "categoryOptionGroups"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Category Option Group"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "categoryOptionGroups"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "categoryOptionGroup"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "categoryOptionGroup"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 3}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['displayDescription','dataDimensionType','code','userGroupAccess','categoryOptionGroupSet','access','created','displayName','publicAccess','description','displayShortName','externalAccess','lastUpdated','name','id','href','categoryOption','shortName','user']"}

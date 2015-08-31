@@ -1,0 +1,21 @@
+# Schema tests for Indicator
+---
+- config:
+    - testset: "Schemas API Indicator test sets"
+- test:
+    - group: "/api/schemas/indicator"
+    - url: "/api/schemas/indicator.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.indicator.Indicator"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/indicators"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "indicators"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Indicator"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "indicators"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "indicator"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "indicator"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 3}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['code','access','displayName','publicAccess','description','displayShortName','externalAccess','lastUpdated','denominatorDescription','indicatorType','id','href','numeratorDescription','displayDescription','userGroupAccess','created','attributeValue','indicatorGroup','url','denominator','numerator','annualized','decimals','name','legendSet','dataSet','shortName','user']"}

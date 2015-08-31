@@ -1,0 +1,21 @@
+# Schema tests for Message Conversation
+---
+- config:
+    - testset: "Schemas API Message Conversation test sets"
+- test:
+    - group: "/api/schemas/messageConversation"
+    - url: "/api/schemas/messageConversation.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.message.MessageConversation"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/messageConversations"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "messageConversations"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Message Conversation"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "messageConversations"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "messageConversation"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "messageConversation"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 0}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['messageCount','code','access','subject','displayName','publicAccess','externalAccess','lastUpdated','followUp','userMessage','id','href','userSurname','lastSenderSurname','read','userGroupAccess','lastSender','created','lastMessage','lastSenderFirstname','name','message','userFirstname','user']"}

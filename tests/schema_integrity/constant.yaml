@@ -1,0 +1,21 @@
+# Schema tests for Constant
+---
+- config:
+    - testset: "Schemas API Constant test sets"
+- test:
+    - group: "/api/schemas/constant"
+    - url: "/api/schemas/constant.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.constant.Constant"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/constants"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "constants"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Constant"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "constants"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "constant"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "constant"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 2}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['displayDescription','code','userGroupAccess','access','created','displayName','publicAccess','description','displayShortName','externalAccess','lastUpdated','name','id','href','shortName','user','value']"}

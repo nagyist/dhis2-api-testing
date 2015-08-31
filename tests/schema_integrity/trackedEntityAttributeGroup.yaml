@@ -1,0 +1,21 @@
+# Schema tests for Tracked Entity Attribute Group
+---
+- config:
+    - testset: "Schemas API Tracked Entity Attribute Group test sets"
+- test:
+    - group: "/api/schemas/trackedEntityAttributeGroup"
+    - url: "/api/schemas/trackedEntityAttributeGroup.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.trackedentity.TrackedEntityAttributeGroup"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/trackedEntityAttributeGroups"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "trackedEntityAttributeGroups"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Tracked Entity Attribute Group"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "trackedEntityAttributeGroups"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "trackedEntityAttributeGroup"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "trackedEntityAttributeGroup"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 2}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['code','userGroupAccess','access','created','displayName','publicAccess','description','externalAccess','lastUpdated','name','trackedEntityAttribute','id','href','user']"}

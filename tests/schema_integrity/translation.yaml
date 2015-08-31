@@ -1,0 +1,21 @@
+# Schema tests for Translation
+---
+- config:
+    - testset: "Schemas API Translation test sets"
+- test:
+    - group: "/api/schemas/translation"
+    - url: "/api/schemas/translation.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.translation.Translation"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/translations"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "translations"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Translation"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "translations"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "translation"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "translation"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 0}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['code','userGroupAccess','access','created','displayName','publicAccess','objectUid','className','locale','externalAccess','lastUpdated','name','property','id','href','user','value']"}

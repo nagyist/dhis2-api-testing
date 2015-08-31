@@ -1,0 +1,20 @@
+# Schema tests for Validation Criteria
+---
+- config:
+    - testset: "Schemas API Validation Criteria test sets"
+- test:
+    - group: "/api/schemas/validationCriteria"
+    - url: "/api/schemas/validationCriteria.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.validation.ValidationCriteria"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "validationCriterias"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Validation Criteria"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "validationCriterias"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "validationCriteria"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "validationCriteria"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 0}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['code','userGroupAccess','access','created','displayName','publicAccess','description','operator','externalAccess','lastUpdated','name','property','id','href','user','value']"}

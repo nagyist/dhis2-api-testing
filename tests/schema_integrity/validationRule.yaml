@@ -1,0 +1,21 @@
+# Schema tests for Validation Rule
+---
+- config:
+    - testset: "Schemas API Validation Rule test sets"
+- test:
+    - group: "/api/schemas/validationRule"
+    - url: "/api/schemas/validationRule.json"
+    - auth_username: "admin"
+    - auth_password: "district"
+    - expected_status: [200]
+    - validators:
+        - compare: {jsonpath_mini: "klass",  comparator: "eq",  expected: "org.hisp.dhis.validation.ValidationRule"}
+        - compare: {jsonpath_mini: "relativeApiEndpoint",  comparator: "eq",  expected: "/validationRules"}
+        - compare: {jsonpath_mini: "plural",  comparator: "eq",  expected: "validationRules"}
+        - compare: {jsonpath_mini: "displayName",  comparator: "eq",  expected: "Validation Rule"}
+        - compare: {jsonpath_mini: "collectionName",  comparator: "eq",  expected: "validationRules"}
+        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: "validationRule"}
+        - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
+        - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "validationRule"}
+        - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 2}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['validationRuleGroup','lowOutliers','code','access','importance','displayName','publicAccess','description','operator','externalAccess','lastUpdated','leftSide','ruleType','id','sequentialSampleCount','href','annualSampleCount','highOutliers','userGroupAccess','created','rightSide','periodType','organisationUnitLevel','instruction','name','user']"}
