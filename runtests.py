@@ -46,5 +46,6 @@ def main():
 
 if __name__ == "__main__":
     success = main()
+    print(success)
     if not success:
         raise Exception

@@ -16,6 +16,6 @@
     - auth_password: "district"
     - name: "Field validation should pass"
     - validators:
-        - compare: {jsonpath_mini: "name",  comparator: "eq",  expected: 'John Traore'}
-        - compare: {jsonpath_mini: "organisationUnits.0.name",  comparator: "eq",  expected: 'Sierra Leone'}
+        #- compare: {jsonpath_mini: "name",  comparator: "eq",  expected: 'John Traore'}
+        #- compare: {jsonpath_mini: "organisationUnits.0.name",  comparator: "eq",  expected: 'Sierra Leone'}
         - extract_test: {jsonpath_mini: "key_should_not_exist",  test: "not_exists"}
