@@ -18,4 +18,4 @@
         - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
         - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "map"}
         - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 2}
-        - compare: {names: "properties",  comparator: "equal_items",  expected: "['code','userGroupAccess','access','created','displayName','publicAccess','latitude','zoom','externalAccess','lastUpdated','name','mapView','id','href','user','longitude']"}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['code','userGroupAccess','access','created','displayName','publicAccess','latitude','attributeValue','zoom','externalAccess','lastUpdated','name','mapView','id','href','user','longitude']"}

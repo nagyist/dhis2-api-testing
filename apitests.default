@@ -1,4 +1,4 @@
 [Server]
 username: admin 
 password: district 
-baseurl: https://apps.dhis2.org/dev
+baseurl: https://play.dhis2.org/dev

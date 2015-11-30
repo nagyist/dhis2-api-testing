@@ -18,4 +18,4 @@
         - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
         - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "categoryOption"}
         - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 3}
-        - compare: {names: "properties",  comparator: "equal_items",  expected: "['displayDescription','code','userGroupAccess','access','endDate','created','displayName','publicAccess','description','categoryOptionCombo','displayShortName','externalAccess','lastUpdated','categoryOptionGroup','name','id','category','href','organisationUnit','shortName','user','startDate']"}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['aggregationType','dimensionType','code','access','endDate','displayName','publicAccess','description','displayShortName','externalAccess','lastUpdated','id','category','href','organisationUnit','displayDescription','userGroupAccess','dimensionItem','created','attributeValue','categoryOptionCombo','categoryOptionGroup','name','legendSet','shortName','user','startDate']"}

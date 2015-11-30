@@ -18,4 +18,4 @@
         - compare: {jsonpath_mini: "namespace",  comparator: "eq",  expected: "http://dhis2.org/schema/dxf/2.0"}
         - compare: {jsonpath_mini: "singular",  comparator: "eq",  expected: "report"}
         - compare: {jsonpath_mini: "authorities",  comparator: "count_eq",  expected: 4}
-        - compare: {names: "properties",  comparator: "equal_items",  expected: "['designContent','code','userGroupAccess','access','created','displayName','publicAccess','type','externalAccess','reportTable','lastUpdated','relativePeriods','reportParams','name','id','href','user']"}
+        - compare: {names: "properties",  comparator: "equal_items",  expected: "['designContent','code','userGroupAccess','access','created','displayName','publicAccess','attributeValue','type','externalAccess','reportTable','lastUpdated','relativePeriods','reportParams','name','cacheStrategy','id','href','user']"}

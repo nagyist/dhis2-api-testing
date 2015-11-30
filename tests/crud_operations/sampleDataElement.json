@@ -1,11 +1,9 @@
 {
     "aggregationLevels": [],
-    "aggregationOperator": "sum",
     "aggregationType": "SUM",
-    "allItems": false,
     "attributeValues": [],
     "categoryCombo": {
-        "id": "p0KPaWEg3cf"
+        "id": "Wfan7UwK8CQ"
     },
     "code": "TestDataElement",
     "displayName": "TestDataElement",
@@ -14,10 +12,9 @@
     "externalAccess": false,
     "id": "abcd1234567",
     "name": "TestDataElement",
-    "numberType": "number",
+    "valueType": "NUMBER",
     "optionSetValue": false,
     "publicAccess": "rw------",
     "shortName": "TestDataElement",
-    "type": "int",
     "zeroIsSignificant": false
 }
